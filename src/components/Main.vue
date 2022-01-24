@@ -124,6 +124,7 @@
                         immagine del grano('wheat') mancante su fontawesome free
                         verra ricercato sostituto.. per ora ha poca importanza
                         -->
+                        <div class="todo"></div>
                         <h3>Farming</h3>
                     </div>
                     <div class="paragraphs">
@@ -214,6 +215,18 @@ section {
         color: white;
         text-transform: uppercase;
     }
+    .sub-section-container {
+        @include flex($gap:3.5rem);
+        color:white;
+        text-align: center;
+        padding: 2.5rem;
+        .title {
+            svg {
+                font-size: 3.5rem;
+                color: $GoldenrodColor;
+            }
+        }
+    }
     &#every-moment-counts {
         .container-left {
             //next...variable
@@ -225,7 +238,12 @@ section {
             //next..variable
             width:30%;
             //next..variable
+            ///include in mixin...gia usato in HeaDER bG
             background-image: url('../assets/img/home-content-bg-1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            ///fine include in mixin
             .counts-info {
                 @include flex($ali:center,$dir: column);
                 padding: 3rem;
@@ -238,14 +256,19 @@ section {
         }
     }
     &#values {
+        color: white;
+        background-image: url('../assets/img/home-content-bg-2.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
         .container {
             @include flex($dir:column,$ali:center);
             padding: 5rem;
+            //fix svg mancante per la sezione farming di values
+            .todo {
+                height: 3.5rem;
+            }
         }
-    }
-    .sub-section-container {
-        @include flex($gap:3.5rem);
-        padding: 2.5rem;
     }
 }
 </style>
