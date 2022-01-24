@@ -42,6 +42,9 @@
                 <strong>iconDollaro 3.8M</strong>
                 <span>Donated</span>
             </div>
+            <div>
+                <font-awesome-icon icon='heart' />
+            </div>
             <!-- progetti attivi -->
             <!-- donazioni -->
           </div>
@@ -58,13 +61,27 @@
           latest Articles
           <!-- view All article -->
       </section>
+
   </main>
 </template>
 
 <script>
 // todo: inserire icon fontawesome
+/* import the fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core';
+/* import specific icons */
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+/* add icons to the library */
+library.add(faHeart);
+
 export default {
   name: 'Main',
+  components: {
+    FontAwesomeIcon,
+  },
 };
 </script>
 
