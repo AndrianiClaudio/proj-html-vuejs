@@ -22,7 +22,7 @@
                 </p>
             </div>
             <!-- bottone -->
-            <div>
+            <div class="buttons">
                 <button>Our Mission</button>
             </div>
           </div>
@@ -61,6 +61,82 @@
           <!-- /// right-side -->
       </section>
       <section id="values">
+          <div class="container">
+            <div class="title">
+                <h2>our values</h2>
+            </div>
+            <hr>
+            <div class="subtitle">
+                <span>
+                    Think Big. Act Bigger.
+                </span>
+            </div>
+            <div class="sub-section-container">
+                <div id="clean-water">
+                    <!--  -->
+                    <div class="title">
+                        <font-awesome-icon icon='tint'/>
+                        <h3>Clean Water</h3>
+                    </div>
+                    <div class="paragraphs">
+                        <p>
+                            Nullam convallis, orci in congue aliquet, diam mauris cursus urna, Id maximus lectus magna
+                        </p>
+                    </div>
+                    <div class="buttons">
+                        <button>Learn more</button>
+                    </div>
+                </div>
+                <div id="vaccinations">
+                    <!--  -->
+                    <div class="title">
+                        <font-awesome-icon icon='stethoscope'/>
+                        <h3>Vaccinations</h3>
+                    </div>
+                    <div class="paragraphs">
+                        <p>
+                            Nullam convallis, orci in congue aliquet, diam mauris cursus urna, Id maximus lectus magna
+                        </p>
+                    </div>
+                    <div class="buttons">
+                        <button>Learn more</button>
+                    </div>
+                </div>
+                <div id="education">
+                    <!--  -->
+                    <div class="title">
+                        <font-awesome-icon icon='graduation-cap'/>
+                        <h3>Education</h3>
+                    </div>
+                    <div class="paragraphs">
+                        <p>
+                            Nullam convallis, orci in congue aliquet, diam mauris cursus urna, Id maximus lectus magna
+                        </p>
+                    </div>
+                    <div class="buttons">
+                        <button>Learn more</button>
+                    </div>
+                </div>
+                <div id="farming">
+                    <!--  -->
+                    <div class="title">
+                        <!-- todo
+                        immagine del grano('wheat') mancante su fontawesome free
+                        verra ricercato sostituto.. per ora ha poca importanza
+                        -->
+                        <h3>Farming</h3>
+                    </div>
+                    <div class="paragraphs">
+                        <p>
+                            Nullam convallis, orci in congue aliquet, diam mauris cursus urna, Id maximus lectus magna
+                        </p>
+                    </div>
+                    <div class="buttons">
+                        <button>Learn more</button>
+                    </div>
+                </div>
+            </div>
+        </div>
           <!-- values -->
       </section>
       <section id="recent-causes">
@@ -83,6 +159,9 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faGlobe,
   faDollarSign,
+  faTint,
+  faStethoscope,
+  faGraduationCap,
 } from '@fortawesome/free-solid-svg-icons';
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -91,6 +170,9 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 library.add(
   faGlobe,
   faDollarSign,
+  faTint,
+  faStethoscope,
+  faGraduationCap,
 );
 
 export default {
@@ -114,6 +196,8 @@ section {
         color: $GoldenrodColor;
         // distanzia riga tra titolo e paragrafi
         margin: 1rem 0;
+        width: 200px;
+
     }
     .paragraphs {
         p {
@@ -135,9 +219,6 @@ section {
             //next...variable
             width:70%;
             padding: 5rem;
-            hr {
-                width: 200px;
-            }
         }
         .container-right {
             @include flex($dir:column,$jus:center);
@@ -155,6 +236,16 @@ section {
                 }
             }
         }
+    }
+    &#values {
+        .container {
+            @include flex($dir:column,$ali:center);
+            padding: 5rem;
+        }
+    }
+    .sub-section-container {
+        @include flex($gap:3.5rem);
+        padding: 2.5rem;
     }
 }
 </style>
