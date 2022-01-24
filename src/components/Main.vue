@@ -31,20 +31,30 @@
           <div class="container-right">
             <!-- volontari -->
             <div class="counts-info">
-                <strong>iconHearth 2032</strong>
+                <strong>
+                    <i class="fa fa-heart-o"></i>
+                    2032
+                </strong>
                 <span>Volunteers worldwide</span>
             </div>
             <div class="counts-info">
-                <strong>iconWorld 132</strong>
+                <strong>
+                    <font-awesome-icon icon='globe' />
+                    132
+                </strong>
                 <span>Active projects</span>
             </div>
             <div class="counts-info">
-                <strong>iconDollaro 3.8M</strong>
+                <strong>
+                    <font-awesome-icon icon='dollar-sign' />
+                    3.8M
+                </strong>
                 <span>Donated</span>
             </div>
-            <div>
-                <font-awesome-icon icon='heart' />
-            </div>
+            <!-- <div class="icon-container"> -->
+                <!-- <font-awesome-icon icon='heart-o'/> -->
+                <!-- <font-awesome-icon icon='heart' class="mini"/> -->
+            <!-- </div> -->
             <!-- progetti attivi -->
             <!-- donazioni -->
           </div>
@@ -70,12 +80,18 @@
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core';
 /* import specific icons */
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import {
+  faGlobe,
+  faDollarSign,
+} from '@fortawesome/free-solid-svg-icons';
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 /* add icons to the library */
-library.add(faHeart);
+library.add(
+  faGlobe,
+  faDollarSign,
+);
 
 export default {
   name: 'Main',
@@ -133,6 +149,10 @@ section {
                 @include flex($ali:center,$dir: column);
                 padding: 3rem;
                 color: white;
+                //all-icons
+                svg,i {
+                    font-size: 1.5rem;
+                }
             }
         }
     }
