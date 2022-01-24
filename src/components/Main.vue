@@ -1,17 +1,30 @@
 <template>
   <main class="main">
-      <section id="environment-counts">
+      <section id="every-moment-counts">
           <!-- left-side -->
           <div class="container-left">
             <!-- titolo -->
-            <h2 class="title">Titolo</h2>
-            <!-- eslint-disable max-len -->
-            <!-- paragrafo -->
-            <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam velit soluta ipsam, tempore odio voluptatum recusandae neque corrupti, numquam dolor obcaecati consequuntur possimus minima culpa aut ratione unde totam dolores?</p>
-            <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam velit soluta ipsam, tempore odio voluptatum recusandae neque corrupti, numquam dolor obcaecati consequuntur possimus minima culpa aut ratione unde totam dolores?</p>
-            <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam velit soluta ipsam, tempore odio voluptatum recusandae neque corrupti, numquam dolor obcaecati consequuntur possimus minima culpa aut ratione unde totam dolores?</p>
+            <div class="title">
+                <h2>every moment counts</h2>
+            </div>
+            <hr>
+            <div class="paragraphs">
+                <!-- eslint-disable max-len -->
+                <!-- paragrafo -->
+                <p>
+                    Curabitur non mi et turpis pharetra vulputate. Cras consequat, risus nec commodo vehicula, nisi est laoreet leo, ac convallis nisi nibh id velit. Aliquam mattis metus a nisi pretium.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesent ac nibh vestibulum, laoreet ipsum quis, vestibulum nisi. Curabitur non mi et turpis pharetra vulputate. Ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac nibh vestibulum, laoreet ipsum quis, vestibulum nisi.
+                </p>
+                <p>
+                    Curabitur non mi et turpis pharetra vulputate. Cras consequat, risus nec commodo vehicula, nisi est laoreet leo, ac convallis nisi nibh id velit
+                </p>
+            </div>
             <!-- bottone -->
-            <button>Value</button>
+            <div>
+                <button>Our Mission</button>
+            </div>
           </div>
           <!-- /// left-side -->
           <!-- right-side....bg: home-content-bg-1 -->
@@ -51,14 +64,42 @@ export default {
 
 section {
     @include flex();
-    &#environment-counts {
+    .title {
+        text-transform: uppercase;
+    }
+    hr {
+        color: $GoldenrodColor;
+        // distanzia riga tra titolo e paragrafi
+        margin: 1rem 0;
+    }
+    button {
+        margin-top: 1rem;
+        padding: .5rem 1rem;
+        background-color: $GoldenrodColor;
+        border:1px solid $GoldenrodColor;
+        outline:1px solid $GoldenrodColor;
+        color: white;
+        text-transform: uppercase;
+    }
+    &#every-moment-counts {
         .container-left {
+            //next...variable
             width:70%;
-            background-color: red;
+            padding: 5rem;
+            hr {
+                width: 200px;
+            }
+            .paragraphs {
+                p {
+                    padding: 1rem 0;
+                }
+            }
         }
         .container-right {
+            //next..variable
             width:30%;
-            background-color: blue;
+            //next..variable
+            background-image: url('../assets/img/home-content-bg-1.jpg');
         }
     }
 }
