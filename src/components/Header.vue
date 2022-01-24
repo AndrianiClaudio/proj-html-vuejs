@@ -27,7 +27,7 @@
       <div class="jumbo">
           <h1 class="title">{{jumbo.title}}</h1>
           <!-- eslint-disable max-len -->
-          <p>{{jumbo.paragraph}}</p>
+          <p class="paragraph">{{jumbo.paragraph}}</p>
           <div class="btn-container">
               <button
               v-for="(btn,index) in jumbo.buttons"
@@ -67,7 +67,7 @@ export default {
       },
       jumbo: {
         title: 'Make a difference',
-        paragraph: 'As long as proverty, injustice & inequality persist,none of us can truly rest',
+        paragraph: 'as long as proverty, injustice & inequality persist,none of us can truly rest',
         buttons: [
           {
             value: 'Our mission',
@@ -91,10 +91,8 @@ export default {
 @import '../assets/scss/partials/_mixins.scss';
 
 header.header {
-    @include flex($ali:center,$jus:center,$dir:column);
-    height: 750px;
-    // min-width per gestione ridimensionamento pagina
-    min-width: 900px;
+    height: $headerHeigth;
+    width: 100%;
     color: white;
     // settaggio immagine di background
     background-image: url('../assets/img/home-page-slider.jpg');
@@ -107,15 +105,16 @@ header.header {
         margin: 0 auto;
         // padding: 1.25rem 4rem;
         // dimensione da settare in _variables.scss
-        height: 100px;
+        height: $headerTopHeigth;
         img.logo{
             // dimensione da settare in _variables.scss
             height: 3rem;
         }
         nav {
             ul {
-                @include flex($gap:3.5rem );
+                @include flex($gap:2.5rem );
                 li {
+                    padding: .5rem 1rem;
                     text-transform: uppercase;
                     &.donate-item {
                         background-color: $GoldenrodColor;
@@ -128,13 +127,20 @@ header.header {
         }
     }
     .jumbo {
-        @include flex($ali:center,$jus:center,$dir:column,$gap: 1rem);
-        height: calc(100% - 100px);
+        @include flex($ali:center,$jus:center,$dir:column,$gap: 1.5rem);
+        height: calc(100% - $headerTopHeigth);
         .title {
             text-transform: uppercase;
         }
+        .paragraph {
+            text-align: center;
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
         .btn-container {
             @include flex($jus:center,$gap:.5rem);
+            margin-top:1rem;
             button {
                 color: white;
                 padding: .5rem 1rem;
