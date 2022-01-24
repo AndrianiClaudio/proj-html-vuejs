@@ -29,12 +29,21 @@
           <!-- /// left-side -->
           <!-- right-side....bg: home-content-bg-1 -->
           <div class="container-right">
-            <!-- eslint-disable max-len -->
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore aperiam hic, fugit reprehenderit atque soluta itaque eveniet recusandae voluptas unde exercitationem eos odio repellendus accusantium nisi, natus officiis est velit.
             <!-- volontari -->
+            <div class="counts-info">
+                <strong>iconHearth 2032</strong>
+                <span>Volunteers worldwide</span>
+            </div>
+            <div class="counts-info">
+                <strong>iconWorld 132</strong>
+                <span>Active projects</span>
+            </div>
+            <div class="counts-info">
+                <strong>iconDollaro 3.8M</strong>
+                <span>Donated</span>
+            </div>
             <!-- progetti attivi -->
             <!-- donazioni -->
-
           </div>
           <!-- /// right-side -->
       </section>
@@ -53,6 +62,7 @@
 </template>
 
 <script>
+// todo: inserire icon fontawesome
 export default {
   name: 'Main',
 };
@@ -72,6 +82,12 @@ section {
         // distanzia riga tra titolo e paragrafi
         margin: 1rem 0;
     }
+    .paragraphs {
+        p {
+            padding: 1rem 0;
+            line-height: 2rem;
+        }
+    }
     button {
         margin-top: 1rem;
         padding: .5rem 1rem;
@@ -89,17 +105,18 @@ section {
             hr {
                 width: 200px;
             }
-            .paragraphs {
-                p {
-                    padding: 1rem 0;
-                }
-            }
         }
         .container-right {
+            @include flex($dir:column,$jus:center);
             //next..variable
             width:30%;
             //next..variable
             background-image: url('../assets/img/home-content-bg-1.jpg');
+            .counts-info {
+                @include flex($ali:center,$dir: column);
+                padding: 3rem;
+                color: white;
+            }
         }
     }
 }
