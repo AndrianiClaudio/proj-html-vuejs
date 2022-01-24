@@ -94,11 +94,7 @@ header.header {
     height: $headerHeigth;
     width: 100%;
     color: white;
-    // settaggio immagine di background
-    background-image: url('../assets/img/home-page-slider.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    @include bgSet('../assets/img/home-page-slider.jpg');
     .header-top {
         @include flex($ali: center,$jus: space-between,$gap:2rem);
         width: 90%;

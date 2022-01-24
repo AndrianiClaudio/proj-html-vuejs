@@ -238,12 +238,7 @@ section {
             //next..variable
             width:30%;
             //next..variable
-            ///include in mixin...gia usato in HeaDER bG
-            background-image: url('../assets/img/home-content-bg-1.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            ///fine include in mixin
+            @include bgSet('../assets/img/home-content-bg-1.jpg');
             .counts-info {
                 @include flex($ali:center,$dir: column);
                 padding: 3rem;
@@ -257,10 +252,7 @@ section {
     }
     &#values {
         color: white;
-        background-image: url('../assets/img/home-content-bg-2.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
+        @include bgSet('../assets/img/home-content-bg-2.jpg');
         .container {
             @include flex($dir:column,$ali:center);
             padding: 5rem;

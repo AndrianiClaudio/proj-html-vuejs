@@ -5,3 +5,10 @@
     gap:$gap;
     flex-direction: $dir;
 }
+
+@mixin bgSet($img,$siz:cover,$rep:no-repeat,$pos:center) {
+    background-image: url($img);
+    background-size: $siz;
+    background-repeat: $rep;
+    background-position: $pos;
+}
