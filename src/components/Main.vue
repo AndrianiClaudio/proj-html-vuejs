@@ -55,6 +55,25 @@
                   </div>
                   <button v-if="card.button">{{card.button.value}}</button>
               </div>
+              <div v-if="container.sub_cards" class="sub-cards-container">
+                <div
+                v-for="(subCard,index) in container.sub_cards"
+                :key='`sub-card-${index}`'
+                :class="subCard.name"
+                >
+                  <!-- eslint-disable max-len -->
+                  <img :src=subCard.img alt="inAlt" v-if="subCard.img">
+
+                  <div class="title" v-if="subCard.title">
+                      <span>{{subCard.title.text}}</span>
+                      <div class="subtitle" v-if="subCard.subtitle">
+                          {{subCard.subtitle}}
+                      </div>
+                  </div>
+                </div>
+
+              </div>
+
             </div>
             <div class="paragraphs" v-if="container.paragraphs">
                 <p
@@ -281,6 +300,7 @@ export default {
             },
           ],
         },
+        // latest-articles
         {
           id: 'latest-articles',
           containers: [
@@ -302,6 +322,9 @@ export default {
                   // eslint-disable-next-line global-require
                   img: require('../assets/img/photo-1444213007800-cff19e1677ac-600x450.jpg'),
                 },
+
+              ],
+              sub_cards: [
                 {
                   name: 'sub-card',
                   // eslint-disable-next-line global-require
@@ -468,44 +491,37 @@ export default {
         }
         &#latest-articles {
           .container {
-            @include flex();
-            flex-wrap: wrap;
-            width: 100%;
-            padding: 8rem;
-            .title {
-              width: 100%;
+            margin: 0 auto;
+            width:100%;
+            padding: 5rem;
+            .title{
+              @include flex($dir:column);
+              width:100%;
+              h2,
+              .subtitle {
+                text-align: center;
+              }
               hr {
                 margin: 1rem auto;
               }
-              h2 {
-                text-align: center;
-              }
-              .subtitle.no-uppercase {
-                text-align: center;
-                display: block;
-              }
             }
             .cards {
-              display: flex;
-              padding: 3.2rem;
-              .main-card {
-                width: 70%;
+              padding: 3rem;
+              @include flex($gap: 2.5rem);
+              .subtitle {
+                text-transform: capitalize;
+                text-align: left;
               }
-              .sub-card {
-                display: flex;
-                align-items: flex-start;
-                // flex-direction: column;
-                flex-wrap: wrap;
-                width:100%;
-                img {
-                  // align-self: flex-start;
-                  width: 25%;
+              .main-card {
+                @include flex($ali:flex-start,$jus: flex-start,$dir: column);
+                width: 600px;
                 }
-                .title {
-                  display: flex;
-                  width: 75%;
-                  // align-self: flex-end;
-                }
+                .sub-cards-container {
+                  width: calc(100% - 600px - 10rem);
+                  .sub-card{
+                    flex-direction: row;
+                    display: flex;
+                  }
               }
             }
           }
