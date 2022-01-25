@@ -62,7 +62,9 @@ export default {
           'journal',
           'donate',
         ],
+        // imposta bottoni con sfondo colorato
         bgSet: ['donate'],
+        // seleziona item attualmente attivo
         active: 'home',
       },
       jumbo: {
