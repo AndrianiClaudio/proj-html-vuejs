@@ -10,26 +10,17 @@
     <!-- immagine impostata con style -->
     <div id="footer-logo-container"></div>
     <div class="footer-copyright">
-      <ul>
-        <li>
-          item
-        </li>
-        <li>
-          item
-        </li>
-        <li>
-          item
-        </li>
-        <li>
-          item
-        </li>
-      </ul>
+      <div class="grey-color">
+        <span
+        v-for="(txt,index) in copyright.txt"
+        :key="`txt-${index}`"
+        >
+          {{txt}}
+          <div class="inline-separator" v-if='index < copyright.txt.length-1'>|</div>
+        </span>
+      </div>
       <ul class="icon-list">
         <li>
-          <!-- <font-awesome-icon /> -->
-          <!-- <font-awesome-icon
-          icon='facebook' /> -->
-          <!-- <font-awesome-icon icon='facebook-f'/> -->
           <i class="fa fa-facebook"></i>
           <i class="fa fa-instagram"></i>
           <i class="fa fa-twitter"></i>
@@ -41,25 +32,18 @@
 </template>
 
 <script>
-// import { library } from '@fortawesome/fontawesome-svg-core';
-// import {
-//   faFacebookF,
-// } from '@fortawesome/free-solid-svg-icons';
-// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Section from './Section.vue';
-
-// library.add(
-//   faFacebookF,
-// );
 
 export default {
   name: 'Footer',
   components: {
     Section,
-    // FontAwesomeIcon,
   },
   data() {
     return {
+      copyright: {
+        txt: ['© Copyright 2012 - 2020 AVADA THEME BY THEME FUSION', 'ALL RIGHTS RESERVED', 'POWERED BY WORDPRESS'],
+      },
       sections: [
         {
           id: 'change-a-life-today',
@@ -88,8 +72,25 @@ export default {
   @include bgSet('../assets/img/avada-charity-mobile-logo-retina.png',$siz:auto);
 }
 .footer-copyright {
-  ul {
-    @include flex($jus:center,$gap: 2.5rem)
+  text-align: center;
+  background-color: rgb($FrenchGrayColor,0.2);
+  padding: 4rem;
+  .grey-color {
+    padding-bottom: 4rem;
+    color: $GrayChateauColor;
+    font-size: 1.1rem;
+    .inline-separator {
+      display: inline;
+      padding: 2.5rem;
+    }
+  }
+  i {
+    margin: auto 1rem;
+    padding: 1rem 1.5rem;
+    font-size: 2.5rem;
+    color: $GoldenrodColor;
+    background-color: white;
+    border-radius: 50%;
   }
 }
 </style>

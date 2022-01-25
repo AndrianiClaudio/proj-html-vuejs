@@ -185,6 +185,9 @@ export default {
         @include flex($ali:center,$jus:center);
         @include bgSet('../assets/img/home-content-bg-1.jpg');
         width:calc(100% - $everyCountsContainerWidth);
+        .title {
+          text-align: center;
+        }
         .counts-info {
           text-align: center;
           padding: 1.25rem 0;
@@ -273,6 +276,15 @@ export default {
           }
         }
       }
+    }
+  }
+  // FOOTER
+  &#change-a-life-today {
+    @include bgSet('../assets/img/home-footer.jpg');
+    color: white;
+    p {
+      text-align: center;
+      font-size: 1.25rem;
     }
   }
 }
