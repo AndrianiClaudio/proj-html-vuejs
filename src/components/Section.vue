@@ -36,7 +36,21 @@
             :class="card.title.icon.class"
             v-if="card.title.icon && card.title.icon.pickedBy === 'w3_fa'"></i>
             <!-- TITOLO CARD -->
-            <span class="title-txt">{{card.title.text}}</span>
+            <!-- eslint-disable max-len -->
+            <span class="title-txt" v-if="container.name!=='container-right'">{{card.title.text}}</span>
+            <div class="inline" v-else
+            >
+              <div v-for='(txt,index) in card.title.text'
+              :key="`txt-${index}`"
+              class="inline"
+              >
+                <span
+                :class="{'margin':txt==='3'}"
+                >
+                  {{txt}}
+                </span>
+              </div>
+            </div>
             <!-- SOTTOTITOLO CARD -->
             <div class="subtitle" v-if="card.subtitle">
               <span>{{card.subtitle}}</span>
@@ -121,14 +135,19 @@ export default {
     getNameFromId(i) {
       return i.split('-').join(' ');
     },
+
   },
+  // computed: {
+  // },
 };
 </script>
 
 <style lang="scss" scoped>
 @import '../assets/scss/partials/_variables.scss';
 @import '../assets/scss/partials/_mixins.scss';
+
 .section {
+
   @include flex();
   .container {
     width: 100%;
@@ -154,6 +173,7 @@ export default {
   }
   .paragraphs {
     p {
+      font-size: 1.25rem;
       padding: 1rem 0;
       line-height: 2rem;
     }
@@ -186,15 +206,35 @@ export default {
         @include bgSet('../assets/img/home-content-bg-1.jpg');
         width:calc(100% - $everyCountsContainerWidth);
         .title {
-          text-align: center;
+          @include flex($jus:center);
+          flex-wrap: wrap;
+          .inline {
+            @include flex($jus:center);
+            font-size: 2.5rem;
+            &::first-child {
+              padding-right: 15rem;
+            }
+          }
+          .margin{
+          padding-top:.3rem;
+          }
+          .title-txt {
+            font-size: 1.28rem;
+          }
+          .subtitle {
+            width: 100%;
+            text-align: center;
+            font-size:1.15rem;
+          }
         }
         .counts-info {
           text-align: center;
           padding: 1.25rem 0;
           color: white;
           //all-icons
-          svg,i {
-              font-size: 1.5rem;
+          svg,i,path {
+            margin-right: .5rem;
+              font-size: 2.5rem;
           }
         }
     }
