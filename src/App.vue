@@ -23,9 +23,12 @@ export default {
 
 <style lang="scss">
 @import './assets/scss/style.scss';
-//  todo:
-// modifica font!!
+// import font montserrat
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 #app {
   min-width: 1250px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 100%;
+  // font-weight: 400;
 }
 </style>

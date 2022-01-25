@@ -12,9 +12,9 @@
                 v-for="(item,index) in navbar.items"
                 :key="`item-${index}`"
                 :class="{'donate-item': navbar.bgSet.includes(item),'active':navbar.active === item}"
+                @click = 'activeItem(item)'
                 >
                 <!-- per possibile uso futuro: attiva item al click -->
-                <!-- @click = 'activeItem(item)' -->
                     <a href="#">
                         {{item}}
                     </a>
@@ -49,7 +49,10 @@ export default {
   name: 'Header',
   methods: {
     activeItem(item) {
-      this.navbar.active = item;
+      // button donate funzione a se stante
+      if (!this.navbar.bgSet.includes(item)) {
+        this.navbar.active = item;
+      }
     },
   },
   data() {
