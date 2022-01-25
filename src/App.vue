@@ -26,6 +26,6 @@ export default {
 //  todo:
 // modifica font!!
 #app {
-  min-width: 1500px;
+  min-width: 1250px;
 }
 </style>
