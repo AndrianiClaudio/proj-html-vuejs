@@ -1,46 +1,42 @@
 <template>
   <header class="header">
       <!-- container per logo e navbar-->
-      <div class="header-top">
-        <!-- logo -->
-        <!-- eslint-disable max-len -->
-        <img class='logo' src="../assets/img/avada-charity-logo.png" alt="Logo Avada Charity">
-        <!-- Lista navbar -->
-        <nav>
-            <ul>
-                <li
-                v-for="(item,index) in navbar.items"
-                :key="`item-${index}`"
-                :class="{'donate-item': navbar.bgSet.includes(item),'active':navbar.active === item}"
-                @click = 'activeItem(item)'
-                >
-                <!-- per possibile uso futuro: attiva item al click -->
-                    <a href="#">
-                        {{item}}
-                    </a>
-                </li>
-            </ul>
-        </nav>
+    <div class="header-top">
+      <!-- eslint-disable max-len -->
+      <!-- logo -->
+      <img class='logo' src="../assets/img/avada-charity-logo.png" alt="Logo Avada Charity">
+      <!-- Lista navbar -->
+      <nav>
+        <ul>
+          <li
+          v-for="(item,index) in navbar.items"
+          :key="`item-${index}`"
+          :class="{'donate-item': navbar.bgSet.includes(item),'active':navbar.active === item}"
+          @click = 'activeItem(item)'
+          >
+            <a href="#">
+              {{item}}
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!-- container centrato su asse x e y -->
+    <div class="jumbo">
+      <h1 class="title">{{jumbo.title}}</h1>
+      <!-- eslint-disable max-len -->
+      <p class="paragraph">{{jumbo.paragraph}}</p>
+      <div class="btn-container">
+        <button
+        v-for="(btn,index) in jumbo.buttons"
+        :key ='"jumbo-btn-"+index'
+        :value="btn.value"
+        :class="{'borderSet':btn.borderColor,'colorSet':btn.color}"
+        >
+          {{btn.value}}
+        </button>
       </div>
-
-      <!-- container centrato su asse x e y -->
-      <div class="jumbo">
-          <h1 class="title">{{jumbo.title}}</h1>
-          <!-- eslint-disable max-len -->
-          <p class="paragraph">{{jumbo.paragraph}}</p>
-          <div class="btn-container">
-              <button
-              v-for="(btn,index) in jumbo.buttons"
-              :key ='"jumbo-btn-"+index'
-              :value="btn.value"
-              :class="{'borderSet':btn.borderColor,'colorSet':btn.color}"
-              >
-                {{btn.value}}
-              </button>
-            <!-- <button>Our mission</button>
-            <button>donate-now</button> -->
-          </div>
-      </div>
+    </div>
   </header>
 </template>
 
@@ -49,7 +45,7 @@ export default {
   name: 'Header',
   methods: {
     activeItem(item) {
-      // button donate funzione a se stante
+      // button donate si pensa possa avere una funzione a se stante, non attivabile
       if (!this.navbar.bgSet.includes(item)) {
         this.navbar.active = item;
       }
@@ -96,66 +92,65 @@ export default {
 @import '../assets/scss/partials/_mixins.scss';
 
 header.header {
-    height: $headerHeigth;
-    width: 100%;
-    color: white;
-    @include bgSet('../assets/img/home-page-slider.jpg');
-    .header-top {
-        @include flex($ali: center,$jus: space-between,$gap:2rem);
-        width: 90%;
-        margin: 0 auto;
-        // padding: 1.25rem 4rem;
-        // dimensione da settare in _variables.scss
-        height: $headerTopHeigth;
-        img.logo{
-            // dimensione da settare in _variables.scss
-            height: 3rem;
-        }
-        nav {
-            ul {
-                @include flex($gap:2.5rem );
-                li {
-                    padding: .5rem 1rem;
-                    text-transform: uppercase;
-                    &.donate-item {
-                        background-color: $GoldenrodColor;
-                    }
-                    &.active {
-                        color: $GoldenrodColor;
-                    }
-                }
-            }
-        }
+  @include bgSet('../assets/img/home-page-slider.jpg');
+  height: $headerHeigth;
+  width: 100%;
+  color: white;
+  .header-top {
+    @include flex($ali: center,$jus: space-between,$gap:2rem);
+    height: $headerTopHeigth;
+    width: 90%;
+    margin: 0 auto;
+    img.logo{
+      height: $logoHeigth;
     }
-    .jumbo {
-        @include flex($ali:center,$jus:center,$dir:column,$gap: 1.5rem);
-        height: calc(100% - $headerTopHeigth);
-        .title {
-            text-transform: uppercase;
+    nav {
+      ul {
+        @include flex($gap:2.5rem);
+        li {
+          padding: .75rem 1.25rem;
+          text-transform: uppercase;
+          &.donate-item {
+            background-color: $GoldenrodColor;
+          }
+          &.active {
+            color: $GoldenrodColor;
+          }
         }
-        .paragraph {
-            text-align: center;
-            &::first-letter {
-                text-transform: uppercase;
-            }
-        }
-        .btn-container {
-            @include flex($jus:center,$gap:.5rem);
-            margin-top:1rem;
-            button {
-                color: white;
-                padding: .5rem 1rem;
-                text-transform: uppercase;
-                border: 2px solid white;
-                background-color: rgb(0, 0, 0,0);
-                &.borderSet {
-                    border-color: $GoldenrodColor;
-                }
-                &.colorSet {
-                    color: $GoldenrodColor;
-                }
-            }
-        }
+      }
     }
+  }
+  .jumbo {
+    @include flex($ali:center,$jus:center,$dir:column,$gap: 1.5rem);
+    height: calc(100% - $headerTopHeigth);
+    text-align: center;
+    .title {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+    }
+    .paragraph {
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+    .btn-container {
+      @include flex($jus:center,$gap:.75rem);
+      margin-top:1rem;
+      button {
+        padding: .6rem 1.25rem;
+        text-transform: uppercase;
+        font-size: .9rem;
+        color: white;
+        border: 2px solid white;
+        background-color: rgb(0, 0, 0, 0);
+        &.borderSet {
+            border-color: $GoldenrodColor;
+        }
+        &.colorSet {
+            color: $GoldenrodColor;
+        }
+      }
+    }
+  }
 }
 </style>
