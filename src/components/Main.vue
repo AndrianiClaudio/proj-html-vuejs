@@ -292,19 +292,7 @@ export default {
             },
           ],
         },
-        // change a life today
-        {
-          id: 'change-a-life-today',
-          containers: [
-            {
-              name: 'container',
-              title: true,
-              paragraphs: [
-                "As long as poverty, injustice & inequality, none of us can truly rest. It doesn't take much to change a life, get in touch today and start making the differnce",
-              ],
-            },
-          ],
-        },
+
       ],
     };
   },
