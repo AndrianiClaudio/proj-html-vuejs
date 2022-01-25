@@ -7,6 +7,8 @@
       <Section
       :section = section />
     </div>
+    <!-- immagine impostata con style -->
+    <div id="footer-logo-container"></div>
     <div class="footer-copyright">
       <ul>
         <li>
@@ -71,21 +73,6 @@ export default {
             },
           ],
         },
-        {
-          id: 'footer-logo-container',
-          containers: [
-            {
-              name: 'container',
-              title: false,
-              cards: [
-                {
-                  // eslint-disable-next-line global-require
-                  img: require('../assets/img/avada-charity-mobile-logo-retina.png'),
-                },
-              ],
-            },
-          ],
-        },
       ],
     };
   },
@@ -96,6 +83,10 @@ export default {
 @import '../assets/scss/partials/_variables.scss';
 @import '../assets/scss/partials/_mixins.scss';
 
+#footer-logo-container {
+  height: 120px;
+  @include bgSet('../assets/img/avada-charity-mobile-logo-retina.png',$siz:auto);
+}
 .footer-copyright {
   ul {
     @include flex($jus:center,$gap: 2.5rem)
