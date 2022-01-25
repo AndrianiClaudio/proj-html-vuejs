@@ -7,16 +7,54 @@
       <Section
       :section = section />
     </div>
+    <div class="footer-copyright">
+      <ul>
+        <li>
+          item
+        </li>
+        <li>
+          item
+        </li>
+        <li>
+          item
+        </li>
+        <li>
+          item
+        </li>
+      </ul>
+      <ul class="icon-list">
+        <li>
+          <!-- <font-awesome-icon /> -->
+          <!-- <font-awesome-icon
+          icon='facebook' /> -->
+          <!-- <font-awesome-icon icon='facebook-f'/> -->
+          <i class="fa fa-facebook"></i>
+          <i class="fa fa-instagram"></i>
+          <i class="fa fa-twitter"></i>
+          <i class="fa fa-youtube"></i>
+        </li>
+      </ul>
+    </div>
   </footer>
 </template>
 
 <script>
+// import { library } from '@fortawesome/fontawesome-svg-core';
+// import {
+//   faFacebookF,
+// } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Section from './Section.vue';
+
+// library.add(
+//   faFacebookF,
+// );
 
 export default {
   name: 'Footer',
   components: {
     Section,
+    // FontAwesomeIcon,
   },
   data() {
     return {
@@ -54,6 +92,13 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import '../assets/scss/partials/_variables.scss';
+@import '../assets/scss/partials/_mixins.scss';
 
+.footer-copyright {
+  ul {
+    @include flex($jus:center,$gap: 2.5rem)
+  }
+}
 </style>
