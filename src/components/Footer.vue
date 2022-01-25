@@ -33,6 +33,21 @@ export default {
             },
           ],
         },
+        {
+          id: 'footer-logo-container',
+          containers: [
+            {
+              name: 'container',
+              title: false,
+              cards: [
+                {
+                  // eslint-disable-next-line global-require
+                  img: require('../assets/img/avada-charity-mobile-logo-retina.png'),
+                },
+              ],
+            },
+          ],
+        },
       ],
     };
   },
