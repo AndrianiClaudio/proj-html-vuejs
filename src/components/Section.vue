@@ -161,11 +161,16 @@ export default {
   .container {
     width: 100%;
     .cards {
-        @include flex();
+      @include flex();
       }
   }
   [class*='container'] {
     padding: 5rem;
+  }
+  .view-all {
+    background-color: $BurntSiennaColor;
+    color: white;
+    letter-spacing: .15rem;
   }
   .title {
     text-align: center;
@@ -297,17 +302,24 @@ export default {
     .view-all {
         height: 100px;
         line-height: 100px;
-        background-color: $BurntSiennaColor;
-        color: white;
-        width: 100%;
+        min-width: 100%;
+        width: 100vw;
     }
   }
   // LATEST ARTICLES
   &#latest-articles {
+    background-color: rgba($FrenchGrayColor,0.3);
     *{
         text-align: left;
       }
     .container {
+      .view-all {
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        width: calc(600px + 670px + 2.5rem);
+        margin: 0 auto;
+      }
       .title{
         @include flex($dir:column);
         width:100%;
@@ -317,24 +329,38 @@ export default {
         }
       }
       .cards {
-        @include flex($gap: 2.5rem,$jus:center);
+        @include flex($jus:center,$gap: 2.5rem);
         padding: 3.5rem;
-        .title-txt {
-          color: $GoldenrodColor;
-        }
-        .subtitle {
-          text-align: left;
+        .title {
+          .title-txt {
+            font-size: 1.55rem;
+            font-weight: 500;
+            padding-bottom: .5rem;
+            color: $GoldenrodColor;
+          }
+          .subtitle {
+            line-height: 2.25rem;
+            text-align: left;
+          }
         }
         .main-card {
           @include flex($dir: column);
           width: 600px;
+          img {
+            padding-bottom: 1.5rem;
+          }
+          .title {
+            padding-left:.8rem;
+            .title-txt {
+              padding-bottom: 1rem;
+            }
+          }
         }
         .sub-cards-container {
-          padding-top:0;
-          padding-bottom:0;
+          padding:0;
           .sub-card{
-            @include flex();
-            max-width: 600px;
+            @include flex($gap:1.5rem);
+            max-width: 670px;
             &:not(:last-child) {
               padding-bottom: 2rem;
             }

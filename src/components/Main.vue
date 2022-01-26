@@ -203,10 +203,13 @@ export default {
           id: 'latest-articles',
           containers: [
             {
-              title: 'true',
+              title: true,
               name: 'container',
               // title: true,
               subtitle: 'Together we make all the difference',
+              viewAll: {
+                txt: 'view all our articles',
+              },
               cards: [
                 {
                   name: 'main-card',
