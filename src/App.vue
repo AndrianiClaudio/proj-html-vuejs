@@ -26,8 +26,7 @@ export default {
 // import font montserrat
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 #app {
-  min-width: 1750px;
-  width: 100vw;
+  min-width: 1700px;
   font-family: 'Montserrat', sans-serif;
   font-size: 100%;
 }
