@@ -172,6 +172,9 @@ export default {
             {
               title: true,
               subtitle: 'We run projects in over 30 countries in 5 continents',
+              viewAll: {
+                txt: 'view all our causes',
+              },
               cards: [
                 {
                   // eslint-disable-next-line global-require

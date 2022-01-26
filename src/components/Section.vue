@@ -30,7 +30,7 @@
             <!-- ICON -->
             <!-- eslint-disable max-len -->
             <font-awesome-icon
-            :icon='(card.title.icon.prefix) ? [card.title.icon.prefix,card.title.icon.name] : card.title.icon.name'
+            :icon='[card.title.icon.prefix,card.title.icon.name]'
             v-if="card.title.icon && card.title.icon.pickedBy === 'fa'"
             />
             <i
@@ -99,6 +99,9 @@
       </div>
       <!-- BUTTON CONTENT-->
       <button v-if="container.button" class="btn">{{container.button.value}}</button>
+      <div class="view-all" v-if='container.viewAll'>
+        <a href="#">{{container.viewAll.txt}}</a>
+      </div>
     </div>
   </div>
 </template>
@@ -192,6 +195,10 @@ export default {
     outline:1px solid $GoldenrodColor;
     color: white;
     // text-transform: uppercase;
+    &:hover {
+      cursor: pointer;
+      background-color: rgba($GoldenrodColor,0.85);
+    }
   }
   .cards {
     padding: 5rem;
@@ -284,7 +291,15 @@ export default {
     @include flex($ali:center,$jus:center);
     padding-top: 5rem;
     .cards {
-      @include flex($gap:1.5rem);
+      @include flex($gap:1.5rem,$jus:center);
+      padding-bottom: 2.5rem;
+    }
+    .view-all {
+        height: 100px;
+        line-height: 100px;
+        background-color: $BurntSiennaColor;
+        color: white;
+        width: 100%;
     }
   }
   // LATEST ARTICLES

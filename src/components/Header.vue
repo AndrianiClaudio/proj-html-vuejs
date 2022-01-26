@@ -112,6 +112,9 @@ header.header {
           text-transform: uppercase;
           &.donate-item {
             background-color: $GoldenrodColor;
+            &:hover {
+              background-color: rgba($GoldenrodColor,0.85);
+            }
           }
           &.active {
             color: $GoldenrodColor;
