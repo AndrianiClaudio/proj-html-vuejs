@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" id="header">
       <!-- container per logo e navbar-->
     <div class="header-top">
       <!-- eslint-disable max-len -->
@@ -12,9 +12,9 @@
           v-for="(item,index) in navbar.items"
           :key="`item-${index}`"
           :class="{'donate-item': navbar.bgSet.includes(item),'active':navbar.active === item}"
-          @click = 'activeItem(item)'
           >
-            <a href="#">
+            <a href="#"
+            @click = 'activeItem(item)'>
               {{item}}
             </a>
           </li>
@@ -111,6 +111,7 @@ header.header {
           padding: .75rem 1.25rem;
           text-transform: uppercase;
           &.donate-item {
+            cursor: pointer;
             background-color: $GoldenrodColor;
             &:hover {
               background-color: rgba($GoldenrodColor,0.85);
@@ -124,14 +125,15 @@ header.header {
     }
   }
   .jumbo {
-    @include flex($ali:center,$jus:center,$dir:column,$gap: 1.5rem);
+    @include flex($jus:center,$dir:column,$gap: 1.5rem);
     height: calc(100% - $headerTopHeigth);
     text-align: center;
-    .title {
-      font-size: 2.5rem;
+    h1.title {
+      font-size: $mainTitleSize;
       text-transform: uppercase;
     }
     .paragraph {
+      font-size: 1.1rem;
       &::first-letter {
         text-transform: uppercase;
       }

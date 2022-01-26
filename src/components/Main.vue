@@ -171,6 +171,7 @@ export default {
           containers: [
             {
               title: true,
+              name: 'container',
               subtitle: 'We run projects in over 30 countries in 5 continents',
               viewAll: {
                 txt: 'view all our causes',
@@ -219,7 +220,7 @@ export default {
                     noUppercase: true,
                     applyColor: true,
                   },
-                  subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prasent ac nibh vestibulum, laoreet ipsum',
+                  subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prasent ac nibh vestibulum, laoreet ipsum.',
                   // eslint-disable-next-line global-require
                   img: require('../assets/img/photo-1444213007800-cff19e1677ac-600x450.jpg'),
                 },
@@ -236,7 +237,7 @@ export default {
                     applyColor: true,
                     noUppercase: true,
                   },
-                  subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prasent ac nibh vestibulum, laoreet ipsum',
+                  subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prasent ac nibh vestibulum, laoreet ipsum.',
                 },
                 {
                   name: 'sub-card',
@@ -248,7 +249,7 @@ export default {
                     applyColor: true,
                     noUppercase: true,
                   },
-                  subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prasent ac nibh vestibulum, laoreet ipsum',
+                  subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prasent ac nibh vestibulum, laoreet ipsum.',
                 },
                 {
                   name: 'sub-card',
@@ -260,7 +261,7 @@ export default {
                     applyColor: true,
                     noUppercase: true,
                   },
-                  subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prasent ac nibh vestibulum, laoreet ipsum',
+                  subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prasent ac nibh vestibulum, laoreet ipsum.',
                 },
                 {
                   name: 'sub-card',
@@ -272,7 +273,7 @@ export default {
                     applyColor: true,
                     noUppercase: true,
                   },
-                  subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prasent ac nibh vestibulum, laoreet ipsum',
+                  subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prasent ac nibh vestibulum, laoreet ipsum.',
                 },
               ],
             },

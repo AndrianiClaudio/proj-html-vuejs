@@ -28,7 +28,6 @@ export default {
 #app {
   min-width: 1750px;
   width: 100vw;
-  overflow: hidden;
   font-family: 'Montserrat', sans-serif;
   font-size: 100%;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div :id = 'section.id' class="section">
+  <section :id = 'section.id' class="section">
     <div
     v-for="(container,index) in section.containers"
     :key='`container-${index}`'
@@ -44,7 +44,6 @@
             >
               <div v-for='(txt,index) in card.title.text'
               :key="`txt-${index}`"
-              class="inline"
               >
                 <span
                 :class="{'margin':txt==='3'}"
@@ -110,7 +109,7 @@
         <a href="#">{{container.viewAll.txt}}</a>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -161,26 +160,33 @@ export default {
 @import '../assets/scss/partials/_mixins.scss';
 
 .section {
-
   @include flex();
+  // Container unico
   .container {
     width: 100%;
     .cards {
       @include flex();
       }
   }
+  // tutti i container
   [class*='container'] {
     padding: 5rem;
+    // CARDS
+    .cards {
+      padding: 5rem;
+    }
+    .view-all {
+      background-color: $BurntSiennaColor;
+      color: white;
+      letter-spacing: .15rem;
+    }
   }
-  .view-all {
-    background-color: $BurntSiennaColor;
-    color: white;
-    letter-spacing: .15rem;
-  }
+  // TITOLO PRINCIPALE
   .title {
     text-align: center;
+    // TITOLO PRINCIPALE DI OGNI SEZIONE
     h2 {
-      font-size: 1.75rem;
+      font-size: 2rem;
       text-transform: uppercase;
     }
     hr {
@@ -189,7 +195,9 @@ export default {
       border: 2px solid $GoldenrodColor;
       width: 170px;
     }
+
   }
+  // PARAGRAFI
   .paragraphs {
     p {
       font-size: 1.25rem;
@@ -207,11 +215,8 @@ export default {
     // text-transform: uppercase;
     &:hover {
       cursor: pointer;
-      background-color: rgba($GoldenrodColor,0.85);
+      background-color: rgba($GoldenrodColor,0.75);
     }
-  }
-  .cards {
-    padding: 5rem;
   }
   // // EVERY MOMENT COUNTS
   &#every-moment-counts {
@@ -219,44 +224,39 @@ export default {
       width:$everyCountsContainerWidth;
       .title {
         text-align: left;
-      }
-      hr {
-        margin-left: 0;
+        hr {
+          margin-left: 0;
+        }
       }
       .paragraphs {
         padding-bottom: .5rem;
       }
     }
     .container-right {
-        @include flex($ali:center,$jus:center);
         @include bgSet('../assets/img/home-content-bg-1.jpg');
         width:calc(100% - $everyCountsContainerWidth);
-        .title {
-          @include flex($jus:center);
-          flex-wrap: wrap;
-          .inline {
-            @include flex($jus:center);
-            font-size: 2.5rem;
-            &::first-child {
-              padding-right: 15rem;
-            }
-          }
-          .margin{
-          padding-top:.3rem;
-          }
-          .title-txt {
-            font-size: 1.28rem;
-          }
-          .subtitle {
-            width: 100%;
-            text-align: center;
-            font-size:1.15rem;
-          }
-        }
         .counts-info {
           text-align: center;
           padding: 1.25rem 0;
           color: white;
+          .title {
+            @include flex($jus:center);
+            flex-wrap: wrap;
+            //TITOLO DATO
+            .inline {
+              @include flex($jus:center);
+              font-size: 2.5rem;
+              // abbassa carattere(attualmente il 3)
+              .margin{
+                padding-top:.3rem;
+              }
+            }
+            .subtitle {
+              width: 100%;
+              margin: 0 auto;
+              font-size:1.15rem;
+            }
+          }
           //all-icons
           svg,i,path {
             margin-right: .5rem;
@@ -270,13 +270,8 @@ export default {
     color: white;
     @include bgSet('../assets/img/home-content-bg-2.jpg');
     .container {
-      @include flex($dir:row,$jus:center);
+      @include flex($jus:center);
       flex-wrap: wrap;
-      padding: 5rem;
-      .title {
-        text-align: center;
-        width:100%;
-      }
       .cards {
         .our-values-info {
           @include flex($dir:column,$ali:center);
@@ -284,13 +279,17 @@ export default {
           padding: 1.5rem;
           .title{
             @include flex($dir:column,$ali:center,$gap:1rem);
-            .title-txt {
-              font-size: 1.5rem;
-            }
             svg {
               font-size: 5rem;
               color: $GoldenrodColor;
             }
+            .title-txt {
+              font-size: 1.5rem;
+              padding-bottom: 1rem;
+            }
+          }
+          .paragraphs {
+            padding-bottom: 1rem;
           }
         }
       }
@@ -299,21 +298,24 @@ export default {
   // RECENT CAUSES
   &#recent-causes {
     @include flex($ali:center,$jus:center);
-    padding-top: 5rem;
-    .cards {
-      @include flex($gap:1.5rem,$jus:center);
-      padding-bottom: 2.5rem;
-    }
-    .view-all {
+    .container {
+      padding-bottom: 0;
+      .cards {
+        @include flex($gap:1.5rem,$jus:center);
+        padding-bottom: 2.5rem;
+      }
+      .view-all {
         height: 100px;
         line-height: 100px;
-        min-width: 100%;
         width: 100vw;
+        min-width: 1750px;
+        margin-left: -5rem;
+      }
     }
   }
   // LATEST ARTICLES
   &#latest-articles {
-    background-color: rgba($FrenchGrayColor,0.3);
+    background-color: rgba($FrenchGrayColor,0.25);
     *{
         text-align: left;
       }
@@ -325,6 +327,7 @@ export default {
         width: calc(600px + 670px + 2.5rem);
         margin: 0 auto;
       }
+      // TITOLO PRINCIPALE
       .title{
         @include flex($dir:column);
         width:100%;
@@ -336,6 +339,7 @@ export default {
       .cards {
         @include flex($jus:center,$gap: 2.5rem);
         padding: 3.5rem;
+        // titolo card
         .title {
           .title-txt {
             font-size: 1.55rem;
@@ -348,24 +352,37 @@ export default {
             text-align: left;
           }
         }
+        // card principale
         .main-card {
           @include flex($dir: column);
           width: 600px;
+          border: 1px solid $FrenchGrayColor;
           img {
-            padding-bottom: 1.5rem;
+            // padding-bottom: 1.5rem;
+            // padding-bottom: 0;
+            border-bottom: 1px solid $FrenchGrayColor;
+            margin-bottom: 2rem;
           }
           .title {
-            padding-left:.8rem;
+            padding-left:1rem;
             .title-txt {
+              line-height: 2.5rem;
               padding-bottom: 1rem;
             }
           }
         }
+        // card laterali
         .sub-cards-container {
           padding:0;
           .sub-card{
             @include flex($gap:1.5rem);
             max-width: 670px;
+            // TITOLO DI OGNI SUB-CARD
+            .title-txt {
+              &:first-letter {
+                text-transform: uppercase;
+              }
+            }
             &:not(:last-child) {
               padding-bottom: 2rem;
             }
@@ -379,7 +396,7 @@ export default {
     @include bgSet('../assets/img/home-footer.jpg');
     color: white;
     p {
-      width: 50%;
+      width: 52%;
       margin: 0 auto;
       text-align: center;
       font-size: 1.25rem;

@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div class="sections-container"
+    <div class="section-container"
     v-for="(section,index) in sections"
     :key="`footer-section-${index}`"
     >
@@ -21,12 +21,16 @@
       </div>
       <ul class="icon-list">
         <li>
-          <i class="fa fa-facebook"></i>
-          <i class="fa fa-instagram"></i>
-          <i class="fa fa-twitter"></i>
-          <i class="fa fa-youtube"></i>
+          <i v-for='(icon,index) in icons'
+          :key="`footer-icon-${index}`" :class="icon.join(' ')"></i>
+
         </li>
       </ul>
+      <div class=" absolute">
+        <a href="#header">
+          <i class="fa fa-angle-up"></i>
+        </a>
+      </div>
     </div>
   </footer>
 </template>
@@ -44,6 +48,12 @@ export default {
       copyright: {
         txt: ['© Copyright 2012 - 2020 AVADA THEME BY THEME FUSION', 'ALL RIGHTS RESERVED', 'POWERED BY WORDPRESS'],
       },
+      icons: [
+        ['fa', 'fa-facebook'],
+        ['fa', 'fa-instagram'],
+        ['fa', 'fa-twitter'],
+        ['fa', 'fa-youtube'],
+      ],
       sections: [
         {
           id: 'change-a-life-today',
@@ -76,6 +86,7 @@ export default {
   @include bgSet('../assets/img/avada-charity-mobile-logo-retina.png',$siz:auto);
 }
 .footer-copyright {
+  position: relative;
   text-align: center;
   background-color: rgb($FrenchGrayColor,0.2);
   padding: 4rem;
@@ -88,16 +99,30 @@ export default {
       padding: 2.5rem;
     }
   }
-  i {
-    margin: auto 1rem;
-    padding: 1rem 1.5rem;
-    font-size: 2.5rem;
-    color: $GoldenrodColor;
-    background-color: white;
-    border-radius: 50%;
-    &:hover {
-      cursor: pointer;
-      background-color: rgba(white, .5);
+  .absolute {
+    position: absolute;
+    bottom:0;
+    right: 5rem;
+    background-color: $TunaColorMedian;
+    color: white;
+    a {
+      display: block;
+      padding: 1rem;
+    }
+
+  }
+  .icon-list {
+    i {
+      margin: auto 1rem;
+      padding: 1rem 1.5rem;
+      font-size: 2.5rem;
+      color: $GoldenrodColor;
+      background-color: white;
+      border-radius: 50%;
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(white, .5);
+      }
     }
   }
 }
