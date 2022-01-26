@@ -52,8 +52,12 @@ export default {
               name: 'container',
               title: true,
               paragraphs: [
-                "As long as poverty, injustice & inequality, none of us can truly rest. It doesn't take much to change a life, get in touch today and start making the differnce",
+                "As long as poverty, injustice & inequality persist, none of us can truly rest. It doesn't take much to change a life, get in touch today and start making the difference",
               ],
+              button: {
+                array: true,
+                value: ['Volunteer', 'Donate now'],
+              },
             },
           ],
         },
@@ -68,7 +72,7 @@ export default {
 @import '../assets/scss/partials/_mixins.scss';
 
 #footer-logo-container {
-  height: 120px;
+  height: 150px;
   @include bgSet('../assets/img/avada-charity-mobile-logo-retina.png',$siz:auto);
 }
 .footer-copyright {

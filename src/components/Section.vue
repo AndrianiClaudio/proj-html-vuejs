@@ -98,7 +98,14 @@
         </p>
       </div>
       <!-- BUTTON CONTENT-->
-      <button v-if="container.button" class="btn">{{container.button.value}}</button>
+      <button v-if="container.button && !container.button.array" class="btn">{{container.button.value}}</button>
+      <div v-if="container.button && container.button.array" class="btn-container">
+        <button class="btn"
+        v-for="(btn,index) in container.button.value"
+        :key="`btn-${index}`"
+        >{{btn}}</button>
+      </div>
+
       <div class="view-all" v-if='container.viewAll'>
         <a href="#">{{container.viewAll.txt}}</a>
       </div>
@@ -146,8 +153,6 @@ export default {
     },
 
   },
-  // computed: {
-  // },
 };
 </script>
 
@@ -374,8 +379,25 @@ export default {
     @include bgSet('../assets/img/home-footer.jpg');
     color: white;
     p {
+      width: 50%;
+      margin: 0 auto;
       text-align: center;
       font-size: 1.25rem;
+    }
+    .btn-container {
+      padding-top: 1.5rem;
+      text-align: center;
+      .btn {
+        background-color: rgba(black, 0);
+        border: 2px solid white;
+        padding: .65rem 1.5rem;
+        &:not(:last-child) {
+          margin-right: 3rem;
+        }
+        &:hover {
+          background-color: rgba($FrenchGrayColor, 0.5);
+        }
+      }
     }
   }
 }
