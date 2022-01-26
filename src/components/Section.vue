@@ -191,7 +191,7 @@ export default {
     }
     hr {
       color: $GoldenrodColor;
-      margin: 1.25rem auto;
+      margin: 1.75rem auto 2.25rem;
       border: 2px solid $GoldenrodColor;
       width: 170px;
     }
