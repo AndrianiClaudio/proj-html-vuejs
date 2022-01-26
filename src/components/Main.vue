@@ -101,7 +101,7 @@ export default {
                       pickedBy: 'fa',
                       name: 'tint',
                     },
-                    text: 'clean water',
+                    text: 'Clean water',
                   },
                   paragraphs: [
                     'Nullam convallis, orci in congue aliquet, diam mauris cursus urna, Id maximus lectus magna',
@@ -145,11 +145,13 @@ export default {
                 {
                   name: 'our-values-info',
                   title: {
-                    // icon: {
-                    //   pickedBy: 'fa',
-                    //   name: '...',
-                    // },
-                    text: 'farming',
+                    icon: {
+                      pickedBy: 'fa',
+                      // pickedBy: 'w3_fa',
+                      name: 'pagelines',
+                      prefix: 'fab',
+                    },
+                    text: 'Farming',
                   },
                   paragraphs: [
                     'Nullam convallis, orci in congue aliquet, diam mauris cursus urna, Id maximus lectus magna',

@@ -138,7 +138,7 @@ header.header {
       margin-top:1rem;
       button {
         padding: .6rem 1.25rem;
-        text-transform: uppercase;
+        // text-transform: uppercase;
         font-size: .9rem;
         color: white;
         border: 2px solid white;

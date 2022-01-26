@@ -28,8 +28,9 @@
           <!-- CONTAINER TITOLO CARD -->
           <div class="title" v-if="card.title">
             <!-- ICON -->
+            <!-- eslint-disable max-len -->
             <font-awesome-icon
-            :icon='card.title.icon.name'
+            :icon='(card.title.icon.prefix) ? [card.title.icon.prefix,card.title.icon.name] : card.title.icon.name'
             v-if="card.title.icon && card.title.icon.pickedBy === 'fa'"
             />
             <i
@@ -113,6 +114,9 @@ import {
   faStethoscope,
   faGraduationCap,
 } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPagelines,
+} from '@fortawesome/free-brands-svg-icons';
 // /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 // /* add icons to the library */
@@ -122,6 +126,7 @@ library.add(
   faTint,
   faStethoscope,
   faGraduationCap,
+  faPagelines,
 );
 
 export default {
@@ -169,7 +174,7 @@ export default {
       color: $GoldenrodColor;
       margin: 1.25rem auto;
       border: 2px solid $GoldenrodColor;
-      width: 200px;
+      width: 170px;
     }
   }
   .paragraphs {
@@ -186,20 +191,23 @@ export default {
     border:1px solid $GoldenrodColor;
     outline:1px solid $GoldenrodColor;
     color: white;
-    text-transform: uppercase;
+    // text-transform: uppercase;
   }
   .cards {
     padding: 5rem;
   }
   // // EVERY MOMENT COUNTS
   &#every-moment-counts {
-    .title {
-      text-align: left;
-    }
-    hr {
-      margin-left: 0;
-    }
     .container-left {
+      .title {
+        text-align: left;
+      }
+      hr {
+        margin-left: 0;
+      }
+      .paragraphs {
+        padding-bottom: .5rem;
+      }
       width:$everyCountsContainerWidth;
     }
     .container-right {
@@ -258,11 +266,12 @@ export default {
           text-align: center;
           padding: 1.5rem;
           .title{
-            * {
-              width: 100%;
+            @include flex($dir:column,$ali:center,$gap:1rem);
+            .title-txt {
+              font-size: 1.5rem;
             }
             svg {
-              font-size: 3.5rem;
+              font-size: 5rem;
               color: $GoldenrodColor;
             }
           }
