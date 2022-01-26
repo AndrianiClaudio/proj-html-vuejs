@@ -38,6 +38,7 @@
             <!-- TITOLO CARD -->
             <!-- eslint-disable max-len -->
             <span class="title-txt" v-if="container.name!=='container-right'">{{card.title.text}}</span>
+            <!-- permetti la stampa del carattere 3 abbassato rispetto al testo -->
             <div class="inline" v-else
             >
               <div v-for='(txt,index) in card.title.text'

@@ -256,9 +256,9 @@ export default {
                 },
                 {
                   name: 'sub-card',
+                  // eslint-disable-next-line global-require
+                  img: require('../assets/img/photo-1460600421604-5e138c208b9c-177x142.jpg'),
                   title: {
-                    // eslint-disable-next-line global-require
-                    img: require('../assets/img/photo-1460600421604-5e138c208b9c-177x142.jpg'),
                     text: 'Meeting remote tribes in Peru',
                     // da impostare nel template...come classe in .scss
                     applyColor: true,
