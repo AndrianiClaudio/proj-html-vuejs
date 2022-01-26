@@ -216,6 +216,7 @@ export default {
   // // EVERY MOMENT COUNTS
   &#every-moment-counts {
     .container-left {
+      width:$everyCountsContainerWidth;
       .title {
         text-align: left;
       }
@@ -225,7 +226,6 @@ export default {
       .paragraphs {
         padding-bottom: .5rem;
       }
-      width:$everyCountsContainerWidth;
     }
     .container-right {
         @include flex($ali:center,$jus:center);

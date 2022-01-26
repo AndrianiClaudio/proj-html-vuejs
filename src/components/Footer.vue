@@ -95,6 +95,10 @@ export default {
     color: $GoldenrodColor;
     background-color: white;
     border-radius: 50%;
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(white, .5);
+    }
   }
 }
 </style>

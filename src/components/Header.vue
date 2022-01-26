@@ -147,10 +147,17 @@ header.header {
         border: 2px solid white;
         background-color: rgb(0, 0, 0, 0);
         &.borderSet {
-            border-color: $GoldenrodColor;
+          border-color: $GoldenrodColor;
+          &:hover {
+            background-color: rgba($GoldenrodColor, .5);
+          }
         }
         &.colorSet {
             color: $GoldenrodColor;
+        }
+        &:hover {
+          cursor: pointer;
+          background-color: rgba(white, .5);
         }
       }
     }
